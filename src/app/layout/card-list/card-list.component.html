@@ -1,0 +1,10 @@
+<ng-container>
+    <label>Label of the list goes here</label>
+    <div class="row">
+        <ng-container *ngFor="let item of items">
+            <div class="col-xs-12 col-sm-4 col-md-2" routerLink="/{{namespace}}/{{item.id}}">
+                <nodaq-card-item [data]="item"></nodaq-card-item>
+            </div>
+        </ng-container>
+    </div>
+</ng-container>

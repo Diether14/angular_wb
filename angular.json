@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "nodaq"
+    }
+  },
+  "defaultProject": "nodaq",
+  "cli": {
+    "analytics": false
+  }
 }

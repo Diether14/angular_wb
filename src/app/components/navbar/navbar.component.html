@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-light border mb-e">
+    <div class="container justify-content-between">
+        <a href="#" class="navbar-brand">
+            <img src="assets/logo.png" height="50" alt="">
+        </a>
+
+        
+        <div>
+            <button class="navbar-toggler" type="button" (click)="isMenuBarCollapsed = !isMenuBarCollapsed">&#9776;</button>
+            <div [ngbCollapse]="isMenuBarCollapsed" class="collapse navbar-collapse" placement="right">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <div class="form-group">
+                            <input type="search" class="form-control" placeholder="Search..">
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-light rounded" (click)="isMenuBarCollapsed = true">
+                            <fa-icon [icon]="['fas', 'search']"></fa-icon>
+                        </button>
+                        <!-- <a href="#" (click)="isMenuBarCollapsed = true"  class="nav-link">Link</a> -->
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-light rounded" (click)="isMenuBarCollapsed = true">
+                            <fa-icon [icon]="['far', 'bell']"></fa-icon> 
+                        </button>
+                        <!-- <a href="#" (click)="isMenuBarCollapsed = true"  class="nav-link">Link</a> -->
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-dark rounded mx-1" (click)="isMenuBarCollapsed = true">
+                            <fa-icon [icon]="['far', 'smile']"> </fa-icon> <small> EMOTICON STORE</small>
+                        </button>
+                        <!-- <a href="#" (click)="isMenuBarCollapsed = true"  class="nav-link">Link</a> -->
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary rounded" (click)="isMenuBarCollapsed = true">
+                            <small>
+                                LOGIN
+                            </small>
+                        </button>
+                        <!-- <a href="#" (click)="isMenuBarCollapsed = true"  class="nav-link">Link</a> -->
+                    </li>
+                    <li class="nav-item">
+                        <div ngbDropdown class="d-inline-block">
+                            <button ngbDropdownToggle class="btn btn-outline-dark rounded" (click)="isMenuBarCollapsed = true">
+                                <fa-icon [icon]="['far','smile']"></fa-icon> <small>USER</small>
+                            </button>
+                            <div ngbDropdownMenu>
+                                <button ngbDropdownItem>My Profile</button>
+                                <button ngbDropdownItem>About</button>
+                                <div class="dropdown-divider"></div>
+                                <button ngbDropdownItem>Logout</button>
+                            </div>
+                            <!-- <a href="#" (click)="isMenuBarCollapsed = true"  class="nav-link">Link</a> -->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</nav>
