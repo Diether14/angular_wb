@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light border mb-e">
     <div class="container justify-content-between">
-        <a href="#" class="navbar-brand">
+        <a routerLink="/home" class="navbar-brand">
             <img src="assets/logo.png" height="50" alt="">
         </a>
 
@@ -15,7 +15,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-light rounded" (click)="isMenuBarCollapsed = true">
+                        <button class="btn btn-light rounded" (click)="isMenuBarCollapsed = true" routerLink="/search">
                             <fa-icon [icon]="['fas', 'search']"></fa-icon>
                         </button>
                         <!-- <a href="#" (click)="isMenuBarCollapsed = true"  class="nav-link">Link</a> -->
@@ -27,7 +27,7 @@
                         <!-- <a href="#" (click)="isMenuBarCollapsed = true"  class="nav-link">Link</a> -->
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-outline-dark rounded mx-1" (click)="isMenuBarCollapsed = true">
+                        <button class="btn btn-outline-dark rounded mx-1" (click)="isMenuBarCollapsed = true" routerLink="/store-emoticon">
                             <fa-icon [icon]="['far', 'smile']"> </fa-icon> <small> EMOTICON STORE</small>
                         </button>
                         <!-- <a href="#" (click)="isMenuBarCollapsed = true"  class="nav-link">Link</a> -->
@@ -46,8 +46,8 @@
                                 <fa-icon [icon]="['far','smile']"></fa-icon> <small>USER</small>
                             </button>
                             <div ngbDropdownMenu>
-                                <button ngbDropdownItem>My Profile</button>
-                                <button ngbDropdownItem>About</button>
+                                <button ngbDropdownItem routerLink="/profile">My Profile</button>
+                                <button ngbDropdownItem routerLink="/about">About</button>
                                 <div class="dropdown-divider"></div>
                                 <button ngbDropdownItem>Logout</button>
                             </div>

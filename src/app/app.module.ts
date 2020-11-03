@@ -17,6 +17,9 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { CardListComponent } from './layout/card-list/card-list.component';
 import { CardItemComponent } from "./components/items/card-item/card-item.component";
 import { PageNotFoundComponent } from './pages/core/page-not-found/page-not-found.component';
+import { EmoticonStoreComponent } from './pages/emoticon-store/emoticon-store.component';
+import { SearchPageComponent } from './pages/core/search-page/search-page.component';
+import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { PageNotFoundComponent } from './pages/core/page-not-found/page-not-foun
     CommunityPageComponent,
     CardListComponent,
     CardItemComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EmoticonStoreComponent,
+    SearchPageComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
