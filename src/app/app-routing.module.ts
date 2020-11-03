@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutPageComponent } from './pages/core/about-page/about-page.component';
-import { CommunityPageComponent } from './pages/core/community-page/community-page.component';
 import { HomePageComponent } from './pages/core/home-page/home-page.component';
 import { EmoticonStoreComponent } from "./pages/emoticon-store/emoticon-store.component";
 
 import { PageNotFoundComponent } from './pages/core/page-not-found/page-not-found.component';
 import { SearchPageComponent } from './pages/core/search-page/search-page.component';
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
+import { CommunityPageComponent } from './pages/community/community-page/community-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +9,6 @@ import { SampleComponent } from './sample/sample.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomePageComponent } from './pages/core/home-page/home-page.component';
 import { AboutPageComponent } from './pages/core/about-page/about-page.component';
-import { CommunityPageComponent } from './pages/core/community-page/community-page.component';
 
 // icons
 import { FontAwesomeModule, FaIconLibrary } from "@fortawesome/angular-fontawesome";
@@ -20,6 +20,9 @@ import { PageNotFoundComponent } from './pages/core/page-not-found/page-not-foun
 import { EmoticonStoreComponent } from './pages/emoticon-store/emoticon-store.component';
 import { SearchPageComponent } from './pages/core/search-page/search-page.component';
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
+import { CommunityPageComponent } from './pages/community/community-page/community-page.component';
+import { CommunityPostComponent } from './pages/community/community-post/community-post.component';
+
 
 
 @NgModule({
@@ -29,18 +32,20 @@ import { UserProfileComponent } from './pages/user/user-profile/user-profile.com
     NavbarComponent,
     HomePageComponent,
     AboutPageComponent,
-    CommunityPageComponent,
     CardListComponent,
     CardItemComponent,
     PageNotFoundComponent,
     EmoticonStoreComponent,
     SearchPageComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    CommunityPageComponent,
+    CommunityPostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    HttpClientModule,
     FontAwesomeModule
   ],
   providers: [],

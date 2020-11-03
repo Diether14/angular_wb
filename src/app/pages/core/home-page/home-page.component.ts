@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FaIconLibrary } from "@fortawesome/angular-fontawesome";
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-home-page',
@@ -30,10 +31,11 @@ export class HomePageComponent implements OnInit {
     },
   ]
 
-  constructor() {
+  constructor(private ds: DataService) {
   }
 
   ngOnInit(): void {
+    console.log(this.ds.getData("cons"))
   }
 
 }
