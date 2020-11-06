@@ -9,7 +9,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getData = (namespace, id = null) => {
+  getRequest = (namespace, id = null) => {
 
     if(id == null){
       return this.http.get(`${this.baseUrl}${namespace}`)
@@ -19,9 +19,22 @@ export class DataService {
   }
   
 
-  postData =  (link, data) => {
-    return  this.http.post(this.baseUrl + link, data)
+  postRequest =  (namespace, data) => {
+    return  this.http.post(`${this.baseUrl}${namespace}`, data)
   }
+
+  updateRequest =  (namespace, id, data) => {
+    if(id == null){
+      return this.http.post(`${this.baseUrl}${namespace}`, data)
+    }else{
+      return this.http.post(`${this.baseUrl}${namespace}/${id}`, data)
+    }
+  }
+
+  deleteRequest =  (namespace, id, data) => {
+    return  this.http.delete(`${this.baseUrl}${namespace}`, data)
+  }
+
   
 
 }
