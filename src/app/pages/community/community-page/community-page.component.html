@@ -1,1 +1,30 @@
-<p>community-page works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link 3</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link 4</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-10">
+            <div class="jumbotron">
+                <h3>Community Name</h3>
+            </div>
+            <nodaq-card-list 
+                [items]="communityItems" 
+                [namespace]="['community']"
+                [label]="['asdflasdkfj']"
+            ></nodaq-card-list>
+        </div>
+    </div>
+</div>
