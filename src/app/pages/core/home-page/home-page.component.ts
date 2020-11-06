@@ -8,34 +8,29 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  communityItems: Array<any> = [
-    {
-      id: 0,
-      title: "aaa",
-      users: 13
-    },
-    {
-      id: 1,
-      title: "bbb",
-      users: 13
-    },
-    {
-      id: 2,
-      title: "ccc",
-      users: 13
-    },
-    {
-      id: 3,
-      title: "ddd",
-      users: 13
-    },
-  ]
+  communityItems: any = []
+  // communityItems: Array<any> 
+  anotherItems: any
 
-  constructor(private ds: DataService) {
+  constructor(private _ds: DataService) {
+  }
+
+  fetchItems(){
+    this._ds.getRequest('community/user', 18).subscribe(
+      res=>{
+        this.communityItems = res
+      },
+      err => {
+        console.log(err)
+      }
+    )
+    console.log(this.communityItems)
+    
+    // this.ds.getData()
   }
 
   ngOnInit(): void {
-    console.log(this.ds.getData("cons"))
+    this.fetchItems()
   }
 
 }

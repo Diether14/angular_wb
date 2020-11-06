@@ -5,14 +5,36 @@ import { HttpClient } from "@angular/common/http";
   providedIn: 'root'
 })
 export class DataService {
-  private baseUrl = "http://localhost:3414/api/vi/"
+  private baseUrl = "http://localhost:3414/api/v1/"
 
   constructor(private http: HttpClient) { }
 
-  getData = (link, data = null) => {
-    console.log(this.baseUrl + link)
-    // this.http.get(this.baseUrl + link)
+  getRequest = (namespace, id = null) => {
+
+    if(id == null){
+      return this.http.get(`${this.baseUrl}${namespace}`)
+    }else{
+      return this.http.get(`${this.baseUrl}${namespace}/${id}`)
+    }
   }
+  
+
+  postRequest =  (namespace, data) => {
+    return  this.http.post(`${this.baseUrl}${namespace}`, data)
+  }
+
+  updateRequest =  (namespace, id, data) => {
+    if(id == null){
+      return this.http.post(`${this.baseUrl}${namespace}`, data)
+    }else{
+      return this.http.post(`${this.baseUrl}${namespace}/${id}`, data)
+    }
+  }
+
+  deleteRequest =  (namespace, id, data) => {
+    return  this.http.delete(`${this.baseUrl}${namespace}`, data)
+  }
+
   
 
 }

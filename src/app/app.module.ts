@@ -22,6 +22,7 @@ import { SearchPageComponent } from './pages/core/search-page/search-page.compon
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
 import { CommunityPageComponent } from './pages/community/community-page/community-page.component';
 import { CommunityPostComponent } from './pages/community/community-post/community-post.component';
+import { UserRegisterComponent } from './pages/user/user-register/user-register.component';
 
 
 
@@ -39,7 +40,8 @@ import { CommunityPostComponent } from './pages/community/community-post/communi
     SearchPageComponent,
     UserProfileComponent,
     CommunityPageComponent,
-    CommunityPostComponent
+    CommunityPostComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
