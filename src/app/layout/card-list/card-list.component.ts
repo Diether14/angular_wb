@@ -7,9 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./card-list.component.scss']
 })
 export class CardListComponent implements OnInit {
-  @Input() label: String
+  @Input() label: any
   @Input() items: Array<any>
-  @Input() namespace: String
+  @Input() namespace: any
 
   constructor() { }
 

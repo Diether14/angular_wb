@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FaIconLibrary } from "@fortawesome/angular-fontawesome";
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
