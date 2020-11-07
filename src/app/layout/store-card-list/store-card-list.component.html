@@ -1,0 +1,10 @@
+<ng-container>
+    <label>{{label}}</label>
+    <div class="row">
+        <ng-container *ngFor="let item of storeItems">
+            <div class="col-xs-12 col-sm-4 col-md-2" routerLink="/{{namespace}}/{{item.id}}">
+                <nodaq-store-card-item [data]="item"></nodaq-store-card-item>
+            </div>
+        </ng-container>
+    </div>
+</ng-container>
