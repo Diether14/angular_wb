@@ -23,6 +23,10 @@ import { UserProfileComponent } from './pages/user/user-profile/user-profile.com
 import { CommunityPageComponent } from './pages/community/community-page/community-page.component';
 import { CommunityPostComponent } from './pages/community/community-post/community-post.component';
 import { UserRegisterComponent } from './pages/user/user-register/user-register.component';
+import { StoreCardItemComponent } from './components/items/store-card-item/store-card-item.component';
+import { StoreCardListComponent } from './layout/store-card-list/store-card-list.component';
+import { EmoticonBundleViewComponent } from './pages/emoticon-store/emoticon-bundle-view/emoticon-bundle-view.component';
+import { EmoticonItemViewComponent } from './pages/emoticon-store/emoticon-item-view/emoticon-item-view.component';
 
 
 
@@ -41,7 +45,11 @@ import { UserRegisterComponent } from './pages/user/user-register/user-register.
     UserProfileComponent,
     CommunityPageComponent,
     CommunityPostComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    StoreCardItemComponent,
+    StoreCardListComponent,
+    EmoticonBundleViewComponent,
+    EmoticonItemViewComponent
   ],
   imports: [
     BrowserModule,

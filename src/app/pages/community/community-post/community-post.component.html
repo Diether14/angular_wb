@@ -1,1 +1,92 @@
-<p>community-post works!</p>
+<div class="container">
+
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#">Community Name</a>
+        </li>
+        <li class="breadcrumb-item active">
+            <a href="#">Post title</a>
+        </li>
+    </ul>
+
+    <div class="card py-5">
+        <div class="card-body">
+            <h3>Title of the post goes here</h3>
+            <small>By: Name of writer</small>
+            <div class="py-2">
+                <p>Content goes here</p>
+            </div>
+            <div class="btn-group text=center">
+                <button class="btn btn-sm btn-light">Upvote</button>
+                <button class="btn btn-sm btn-light">Comment</button>
+                <button class="btn btn-sm btn-light">Share</button>
+                <button class="btn btn-sm btn-danger">Delete</button>
+            </div>
+        
+            <!-- comments area -->
+            <div class="form-group">
+                <label for="txtCommentBox">Write a comment</label>
+                <textarea id="txtCommentBox" name="txtCommentBox" type="text" class="form-control" rows="4"></textarea>
+                <button class="btn btn-info">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- note to self: dissect componentts to a separate component -->
+    <div id="commentsBox">
+        <div class="card">
+            <div class="card-body">
+                
+                <div class="justify-content-left">
+                    <img src="assets/placeholders/user-placeholder.jpg" alt="user-image" class="rounded-circle" height="40">
+                    <span class="h5 px-1">name of cpommenter</span>
+                </div>
+                <div>
+                    comment here
+                </div>
+                <div class="justify-content-left">
+                    <button class="btn btn-light">Reply</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                
+                <div class="justify-content-left">
+                    <img src="assets/placeholders/user-placeholder.jpg" alt="user-image" class="rounded-circle" height="40">
+                    <span class="h5 px-1">name of cpommenter</span>
+                </div>
+                <div>
+                    comment here
+                </div>
+                <div class="justify-content-left">
+                    <button class="btn btn-light">Reply</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                
+                <div class="justify-content-left">
+                    <img src="assets/placeholders/user-placeholder.jpg" alt="user-image" class="rounded-circle" height="40">
+                    <span class="h5 px-1">name of cpommenter</span>
+                </div>
+                <div>
+                    comment here
+                </div>
+                <div class="justify-content-left">
+                    <button class="btn btn-light">Reply</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

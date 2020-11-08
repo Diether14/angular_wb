@@ -21,9 +21,18 @@
                         <!-- <a href="#" (click)="isMenuBarCollapsed = true"  class="nav-link">Link</a> -->
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-light rounded" (click)="isMenuBarCollapsed = true">
+                        <!-- <button  class="btn btn-light rounded" (click)="isMenuBarCollapsed = true">
                             <fa-icon [icon]="['far', 'bell']"></fa-icon> 
-                        </button>
+                        </button> -->
+                        <div ngbDropdown class="d-inline-block">
+                            <button ngbDropdownToggle class="btn btn-light rounded" (click)="isMenuBarCollapsed = true">
+                                <fa-icon [icon]="['far', 'bell']"></fa-icon> 
+                            </button>
+                            <div ngbDropdownMenu>
+                                <p ngbDropdownItem>asdfasdf</p>
+                                <p ngbDropdownItem>asdfasdf</p>
+                            </div>
+                        </div>
                         <!-- <a href="#" (click)="isMenuBarCollapsed = true"  class="nav-link">Link</a> -->
                     </li>
                     <li class="nav-item">
