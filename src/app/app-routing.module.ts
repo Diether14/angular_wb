@@ -11,20 +11,30 @@ import { CommunityPageComponent } from './pages/community/community-page/communi
 import { CommunityPostComponent } from './pages/community/community-post/community-post.component';
 import { EmoticonBundleViewComponent } from './pages/emoticon-store/emoticon-bundle-view/emoticon-bundle-view.component';
 import { EmoticonItemViewComponent } from './pages/emoticon-store/emoticon-item-view/emoticon-item-view.component';
-
+import { UserEmoticonComponent } from './pages/user/user-emoticon/user-emoticon.component';
+import { CommunityCreateComponent } from './pages/community/community-create/community-create.component';
+  
 const routes: Routes = [
+  // essential pages
   { path: 'home', component: HomePageComponent },
   { path: 'page-not-found', component: PageNotFoundComponent },
   
+  // core pages
   { path: 'about', component: AboutPageComponent },
-  { path: 'community', component: CommunityPageComponent },
-  { path: 'community/:community_id', component: CommunityPageComponent },
-  { path: 'community/post/:post_id', component: CommunityPostComponent },
-  { path: 'store-emoticon', component: EmoticonStoreComponent },
-  { path: 'store-emoticon/bundle/:bundle_id', component: EmoticonBundleViewComponent },
-  { path: 'store-emoticon/emoticon/:emoticon_id', component: EmoticonItemViewComponent},
   { path: 'search', component: SearchPageComponent },
   { path: 'profile', component: UserProfileComponent },
+
+  // community pages
+  { path: 'community', component: CommunityPageComponent },
+  { path: 'community/create', component: CommunityCreateComponent },
+  { path: 'community/:community_id', component: CommunityPageComponent },
+  { path: 'community/post/:post_id', component: CommunityPostComponent },
+
+  // emoticon pages
+  { path: 'store-emoticon', component: EmoticonStoreComponent },
+  { path: 'store-emoticon/my-emoticons', component: UserEmoticonComponent},
+  { path: 'store-emoticon/bundle/:bundle_id', component: EmoticonBundleViewComponent },
+  { path: 'store-emoticon/emoticon/:emoticon_id', component: EmoticonItemViewComponent},
   
   {path: '', redirectTo: "/home", pathMatch: "full"},
   { path: '**', redirectTo:"/page-not-found", pathMatch: "full" }
