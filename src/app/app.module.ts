@@ -27,6 +27,9 @@ import { StoreCardItemComponent } from './components/items/store-card-item/store
 import { StoreCardListComponent } from './layout/store-card-list/store-card-list.component';
 import { EmoticonBundleViewComponent } from './pages/emoticon-store/emoticon-bundle-view/emoticon-bundle-view.component';
 import { EmoticonItemViewComponent } from './pages/emoticon-store/emoticon-item-view/emoticon-item-view.component';
+import { UserEmoticonComponent } from './pages/user/user-emoticon/user-emoticon.component';
+import { CommunityCreateComponent } from './pages/community/community-create/community-create.component';
+import { CommunityPostCreateComponent } from './pages/communityi/community-post-create/community-post-create.component';
 
 
 
@@ -49,7 +52,10 @@ import { EmoticonItemViewComponent } from './pages/emoticon-store/emoticon-item-
     StoreCardItemComponent,
     StoreCardListComponent,
     EmoticonBundleViewComponent,
-    EmoticonItemViewComponent
+    EmoticonItemViewComponent,
+    UserEmoticonComponent,
+    CommunityCreateComponent,
+    CommunityPostCreateComponent
   ],
   imports: [
     BrowserModule,
