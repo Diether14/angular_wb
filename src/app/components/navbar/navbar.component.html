@@ -29,8 +29,21 @@
                                 <fa-icon [icon]="['far', 'bell']"></fa-icon> 
                             </button>
                             <div ngbDropdownMenu>
-                                <p ngbDropdownItem>asdfasdf</p>
-                                <p ngbDropdownItem>asdfasdf</p>
+                                <div ngbDropdownItem class="w-100 justify-content-left">
+                                    <p>A user has commented on your post. </p>
+                                    <hr/>
+                                </div>
+                                <div ngbDropdownItem class="w-100 justify-content-left">
+                                    <p>A user has commented on your post. </p>
+                                    <hr/>
+                                </div>
+                                <div ngbDropdownItem class="w-100 justify-content-left">
+                                    <p>A user has commented on your post. </p>
+                                    <hr/>
+                                </div>
+                                <div ngbDropdownItem >
+                                    <button class="btn btn-link btn-sm btn-block">See more notifications</button>
+                                </div>
                             </div>
                         </div>
                         <!-- <a href="#" (click)="isMenuBarCollapsed = true"  class="nav-link">Link</a> -->
@@ -52,13 +65,18 @@
                     <li class="nav-item">
                         <div ngbDropdown class="d-inline-block">
                             <button ngbDropdownToggle class="btn btn-outline-dark rounded" (click)="isMenuBarCollapsed = true">
-                                <fa-icon [icon]="['far','smile']"></fa-icon> <small>USER</small>
+                                <fa-icon [icon]="['far','user']" class="px-1"></fa-icon> <small>USER</small>
                             </button>
                             <div ngbDropdownMenu>
                                 <button ngbDropdownItem routerLink="/profile">My Profile</button>
                                 <button ngbDropdownItem routerLink="/about">About</button>
                                 <div class="dropdown-divider"></div>
                                 <button ngbDropdownItem>Logout</button>
+                                <button ngbDropdownItem>
+                                    <small>
+                                        <a routerLink="/privacy">Privacy</a> · <a routerLink="/terms-and-conditions">Terms and Conditions</a> · <br/> <a routerLink="/cookies-policy">Cookies</a> · <a routerLink="/community-guidelines">Community Guidelines</a> <br/>Nodaq 2020
+                                    </small>
+                                </button>
                             </div>
                             <!-- <a href="#" (click)="isMenuBarCollapsed = true"  class="nav-link">Link</a> -->
                         </div>

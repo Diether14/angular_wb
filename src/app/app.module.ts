@@ -29,7 +29,10 @@ import { EmoticonBundleViewComponent } from './pages/emoticon-store/emoticon-bun
 import { EmoticonItemViewComponent } from './pages/emoticon-store/emoticon-item-view/emoticon-item-view.component';
 import { UserEmoticonComponent } from './pages/user/user-emoticon/user-emoticon.component';
 import { CommunityCreateComponent } from './pages/community/community-create/community-create.component';
-import { CommunityPostCreateComponent } from './pages/communityi/community-post-create/community-post-create.component';
+import { PrivaryPageComponent } from './pages/core/privary-page/privary-page.component';
+import { CookiesStatementPageComponent } from './pages/core/cookies-statement-page/cookies-statement-page.component';
+import { TermsPageComponent } from './pages/core/terms-page/terms-page.component';
+import { CommunityGuidelinesPageComponent } from './pages/core/community-guidelines-page/community-guidelines-page.component';
 
 
 
@@ -55,7 +58,10 @@ import { CommunityPostCreateComponent } from './pages/communityi/community-post-
     EmoticonItemViewComponent,
     UserEmoticonComponent,
     CommunityCreateComponent,
-    CommunityPostCreateComponent
+    PrivaryPageComponent,
+    CookiesStatementPageComponent,
+    TermsPageComponent,
+    CommunityGuidelinesPageComponent
   ],
   imports: [
     BrowserModule,

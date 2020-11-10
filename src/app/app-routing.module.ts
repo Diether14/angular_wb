@@ -13,6 +13,10 @@ import { EmoticonBundleViewComponent } from './pages/emoticon-store/emoticon-bun
 import { EmoticonItemViewComponent } from './pages/emoticon-store/emoticon-item-view/emoticon-item-view.component';
 import { UserEmoticonComponent } from './pages/user/user-emoticon/user-emoticon.component';
 import { CommunityCreateComponent } from './pages/community/community-create/community-create.component';
+import { PrivaryPageComponent } from './pages/core/privary-page/privary-page.component';
+import { CookiesStatementPageComponent } from './pages/core/cookies-statement-page/cookies-statement-page.component';
+import { TermsPageComponent } from './pages/core/terms-page/terms-page.component';
+import { CommunityGuidelinesPageComponent } from './pages/core/community-guidelines-page/community-guidelines-page.component';
   
 const routes: Routes = [
   // essential pages
@@ -23,10 +27,15 @@ const routes: Routes = [
   { path: 'about', component: AboutPageComponent },
   { path: 'search', component: SearchPageComponent },
   { path: 'profile', component: UserProfileComponent },
+  { path: 'privacy', component: PrivaryPageComponent },
+  { path: 'cookies-policy', component: CookiesStatementPageComponent },
+  { path: 'terms-and-conditions', component: TermsPageComponent },
+  { path: 'community-guidelines', component: CommunityGuidelinesPageComponent },
 
   // community pages
   { path: 'community', component: CommunityPageComponent },
   { path: 'community/create', component: CommunityCreateComponent },
+  { path: 'community/post/create', component: CommunityCreateComponent },
   { path: 'community/:community_id', component: CommunityPageComponent },
   { path: 'community/post/:post_id', component: CommunityPostComponent },
 
