@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FaIconLibrary } from "@fortawesome/angular-fontawesome";
 import { faBell, faSmile, faUserCircle } from "@fortawesome/free-regular-svg-icons";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faHome, faUser, faCog, faPenSquare, faUserFriends } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'nodaq-navbar',
@@ -13,10 +13,15 @@ export class NavbarComponent implements OnInit {
 
   constructor(iconLibrary: FaIconLibrary) {
     iconLibrary.addIcons(
+      faHome,
       faBell,
       faSmile,
       faSearch,
-      faUserCircle
+      faUserCircle,
+      faUser,
+      faUserFriends,
+      faPenSquare,
+      faCog
     );
   }
 
