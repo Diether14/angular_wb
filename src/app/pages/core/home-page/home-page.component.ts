@@ -11,11 +11,11 @@ export class HomePageComponent implements OnInit {
   // communityItems: Array<any> 
   anotherItems: any
 
-  constructor(private _ds: DataService) {
+  constructor(private ds: DataService) {
   }
 
   fetchItems(){
-    this._ds.getRequest('community/user', 18).subscribe(
+    this.ds.getRequest('community/user', 18).subscribe(
       res=>{
         this.communityItems = res
       },
@@ -23,7 +23,6 @@ export class HomePageComponent implements OnInit {
         console.log(err)
       }
     )
-    console.log(this.communityItems)
     
     // this.ds.getData()
   }
