@@ -8,7 +8,10 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./community-page.component.scss']
 })
 export class CommunityPageComponent implements OnInit {
+  isLoading: Boolean = true
   categories: any = []
+  currentCategory: any
+  posts: any = []
   communityItems: Array<any> = [
     {
       id: 0,
@@ -35,9 +38,8 @@ export class CommunityPageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private _ds: DataService) { }
 
   fetchCategories(id){
-    this._ds.getRequest('categories/cid', id).subscribe(
+    this._ds.getRequest('community/categories/cid', id).subscribe(
       res=>{
-        console.log(res)
         this.categories = res
       },
       err => {
@@ -49,10 +51,9 @@ export class CommunityPageComponent implements OnInit {
   }
 
   fetchPosts(id){
-    this._ds.getRequest(`posts/catid/${id}`, id).subscribe(
+    this._ds.getRequest(`community/posts/catid`, id).subscribe(
       res=>{
-        console.log(res)
-        this.categories = res
+        this.posts = res
       },
       err => {
         console.log(err)
@@ -62,9 +63,24 @@ export class CommunityPageComponent implements OnInit {
     // this.ds.getData()
   }
 
+  selectCategory(id){
+    this.isLoading = true
+    this.currentCategory = id
+    this.posts = []
+    setTimeout(() => {
+      this.fetchPosts(this.currentCategory = id)
+      this.isLoading = false
+    }, 1000);
+  }
+
 
   ngOnInit(): void {
     this.fetchCategories(this.route.snapshot.params.community_id)
+    setTimeout(() => {
+      this.selectCategory(this.categories[0].id)
+    }, 2000);
+    
+    
   }
 
 }

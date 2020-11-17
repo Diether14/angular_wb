@@ -1,11 +1,22 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-2 py-2">
+            <button class="btn btn-primary btn-block">
+                Create new
+            </button>
             <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Link 1</a>
-                </li>
-                <li class="nav-item">
+                <ng-container>
+                    <li class="nav-item">
+                        <a routerLink="./" class="nav-link">Status</a>
+                    </li>
+                </ng-container>
+                <div class="dropdown-divider"></div>
+                <ng-container *ngFor="let category of categories">
+                    <li class="nav-item">
+                        <a routerLink="./" (click)="selectCategory(category.id)" class="nav-link">{{category.category_name}}</a>
+                    </li>
+                </ng-container>
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link">Link 2</a>
                 </li>
                 <li class="nav-item">
@@ -13,7 +24,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Link 4</a>
-                </li>
+                </li> -->
             </ul>
         </div>
         <div class="col-sm-10">
@@ -21,9 +32,10 @@
                 <h3>Community Name</h3>
             </div>
             <nodaq-card-list 
-                [items]="communityItems" 
+                [items]="posts" 
                 [namespace]="['community/post']"
-                [label]="['asdflasdkfj']"
+                [label]="['This community']"
+                [isLoading]="isLoading"
             ></nodaq-card-list>
         </div>
     </div>
