@@ -1,10 +1,28 @@
 <ng-container>
-    <label>{{label}}</label>
-    <div class="row">
-        <ng-container *ngFor="let item of items">
-            <div class="col-xs-12 col-sm-4 col-md-2" routerLink="/{{namespace}}/{{item.id}}">
-                <nodaq-card-item [data]="item"></nodaq-card-item>
+    <ng-container *ngIf="isLoading">
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
             </div>
-        </ng-container>
-    </div>
+        </div>
+        <p class="text-center">Loading..</p>
+    </ng-container>
+    <ng-container *ngIf="!isLoading && items.length == 0">
+        <div class="d-flex justify-content-center">
+            <p>There are no posts for this category</p><br/>
+            <button class="btn btn-primary text-center">
+                Create new post
+            </button>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="!isLoading && items.length > 0">
+        <label>{{label}}</label>
+        <div class="row">
+            <ng-container *ngFor="let item of items">
+                <div class="col-xs-12 col-sm-4 col-md-2" routerLink="/{{namespace}}/{{item.id}}">
+                    <nodaq-card-item [data]="item"></nodaq-card-item>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
 </ng-container>

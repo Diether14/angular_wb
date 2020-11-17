@@ -10,6 +10,7 @@ export class CardListComponent implements OnInit {
   @Input() label: any
   @Input() items: Array<any>
   @Input() namespace: any
+  @Input() isLoading: Boolean
 
   constructor() { }
 
