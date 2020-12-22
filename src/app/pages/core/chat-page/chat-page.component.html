@@ -1,0 +1,32 @@
+<div class="container-fluid" onload="">
+    <div class="row">
+        <div class="col-3">
+            <pre>{{list}}</pre>  
+          <iframe id=rooms  width="100%" height="500px">
+            
+            </iframe>
+        </div>
+        <div class="col-9">
+            <iframe id=chatbox width="100%" height="500px"></iframe>
+        </div>
+    </div>
+    <form [formGroup]="msgForm" (ngSubmit)="onSubmitMessage()">
+  
+      <label>
+        Message
+        <!-- <input type="text" formControlName="msg"> -->
+        <textarea formControlName="msg"></textarea>
+      </label>
+    
+      <label>
+        Room ID:
+        <input type="text" formControlName="room_id" value="45">
+      </label>
+      <button type="submit" [disabled]="!msgForm.valid">Submit</button>
+    
+    </form>
+  
+  
+</div>
+
+  <!-- Modal -->
