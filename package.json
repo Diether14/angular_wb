@@ -28,6 +28,7 @@
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "bootstrap": "^4.5.3",
     "rxjs": "~6.6.0",
+    "rxjs-websockets": "^8.0.1",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
