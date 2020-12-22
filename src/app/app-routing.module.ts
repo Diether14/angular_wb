@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutPageComponent } from './pages/core/about-page/about-page.component';
 import { HomePageComponent } from './pages/core/home-page/home-page.component';
 import { EmoticonStoreComponent } from "./pages/emoticon-store/emoticon-store.component";
+import { ChatPageComponent } from './pages/core/chat-page/chat-page.component'
 
 import { PageNotFoundComponent } from './pages/core/page-not-found/page-not-found.component';
 import { SearchPageComponent } from './pages/core/search-page/search-page.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'about', component: AboutPageComponent },
   { path: 'search', component: SearchPageComponent },
   { path: 'profile', component: UserProfileComponent },
+  { path: 'chat', component: ChatPageComponent },
   { path: 'privacy', component: PrivaryPageComponent },
   { path: 'cookies-policy', component: CookiesStatementPageComponent },
   { path: 'terms-and-conditions', component: TermsPageComponent },
