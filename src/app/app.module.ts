@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ChatPageComponent } from './pages/core/chat-page/chat-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -39,6 +39,9 @@ import { StoreCardItemComponent } from './components/items/store-card-item/store
 // layouts
 import { CardListComponent } from './layout/card-list/card-list.component';
 import { StoreCardListComponent } from './layout/store-card-list/store-card-list.component';
+//imports
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -51,6 +54,7 @@ import { StoreCardListComponent } from './layout/store-card-list/store-card-list
     AboutPageComponent,
     CardListComponent,
     CardItemComponent,
+    ChatPageComponent,
     PageNotFoundComponent,
     EmoticonStoreComponent,
     SearchPageComponent,
@@ -74,7 +78,9 @@ import { StoreCardListComponent } from './layout/store-card-list/store-card-list
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
