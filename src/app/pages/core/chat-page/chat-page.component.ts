@@ -9,27 +9,37 @@ import { FormGroup, FormControl} from '@angular/forms'
 })
 
 export class ChatPageComponent implements OnInit {
-  res: any = null
+  roomitems:any=null;
   msgForm = new FormGroup({
+    type: new FormControl('message'),
     msg: new FormControl(''),
     room_id: new FormControl(''),
   });
   constructor(private service: WebsocketService, private ds: DataService) {
-    
-    // this.service.sendMessage('test');
-    this.fetchRooms(45)
-    this.connectToWS();
+     this.connectToWS();
+
   }
   onSubmitMessage() {
-    // TODO: Use EventEmitter with form value
     console.log(this.msgForm.value);
     this.service.sendMessage(this.msgForm.value)
   }
-  fetchRooms(id){
-    this.ds.getRequest('posts', id).subscribe(
+  // fetchRooms(id){
+  //   this.ds.getRequest('rooms/', id).subscribe(
+  //     res=>{
+  //       console.log(res)
+  //       this.roomitems = res
+  //     },
+  //     err => {
+  //       console.log(err)
+  //     }
+  //   )
+  // }
+  getMessages(id){
+    console.log("clicked")
+    this.ds.getRequest('chats/room', id).subscribe(
       res=>{
         console.log(res)
-        this.res = res
+        // this.roomitems = res
       },
       err => {
         console.log(err)
@@ -43,18 +53,25 @@ export class ChatPageComponent implements OnInit {
       type: "rooms",
       currentUser: currentUser
     }
+
     this.service.sendMessage(room)
   }
   connectToWS(){
-    // this.service.connect();
-    // this.service.sendMessage({test:"test123"})
+    // this.service.connect(this.roomitems);
+    this.service.getWebSocket().subscribe(
+      msg=>{
+        this.roomitems= msg[1]
+        console.log(msg[1]);
+      },
+      er=>er,
+      ()=>console.log('success')
+    )
+    // this.service.sendMessage({})
   }
 
 
   ngOnInit(): void {
-    this.loadRooms();
-    
-    
+    this.loadRooms();    
   }
   
 
