@@ -7,26 +7,35 @@ export const WS_ENDPOINT = environment.wsEndpoint;
 
 
 const ws =  webSocket(WS_ENDPOINT);
-ws.subscribe(
-  msg => console.log(msg),
-  err => console.log(err), 
-  () => console.log('complete') 
-);
+// ws.subscribe(
+//   msg => console.log(msg),
+//   err => console.log(err), 
+//   () => console.log('complete') 
+// );
+
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class WebsocketService {
-
-  public connect(){
-    this.getWebSocket().subscribe()
+test:any =null;
+  public connect(test){
+    this.getWebSocket().subscribe(
+      msg => {
+        this.test= msg[1]
+        console.log(msg[1])
+      },
+      err => console.log(err), 
+      () => console.log('complete') 
+    )
     console.log(this.getWebSocket())
   }
   public sendMessage(msg){
-    this.getWebSocket().next(msg);
+    return this.getWebSocket().next(msg);
   }
   
-  private getWebSocket(){
+  public getWebSocket(){
     return ws;
   }
   
