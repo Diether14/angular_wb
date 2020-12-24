@@ -9,7 +9,11 @@ import { FormGroup, FormControl} from '@angular/forms'
 })
 
 export class ChatPageComponent implements OnInit {
+  data:any;
+  currentuser=45;
   roomitems:any=null;
+  roomparticipants:any=null;
+  room_messages:any=null;
   msgForm = new FormGroup({
     type: new FormControl('message'),
     msg: new FormControl(''),
@@ -23,23 +27,24 @@ export class ChatPageComponent implements OnInit {
     console.log(this.msgForm.value);
     this.service.sendMessage(this.msgForm.value)
   }
-  // fetchRooms(id){
-  //   this.ds.getRequest('rooms/', id).subscribe(
-  //     res=>{
-  //       console.log(res)
-  //       this.roomitems = res
-  //     },
-  //     err => {
-  //       console.log(err)
-  //     }
-  //   )
-  // }
   getMessages(id){
-    console.log("clicked")
+    // console.log("clicked")
     this.ds.getRequest('chats/room', id).subscribe(
-      res=>{
-        console.log(res)
-        // this.roomitems = res
+      (res:any)=>{
+        console.log(res.data);
+          this.room_messages =  res.data
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
+  getParticipants(id){
+    // console.log("clicked")
+    this.ds.getRequest('chats/participants', id).subscribe(
+      (res:any)=>{
+          console.log(res.data);
+          this.roomparticipants =  res.data
       },
       err => {
         console.log(err)
@@ -57,7 +62,6 @@ export class ChatPageComponent implements OnInit {
     this.service.sendMessage(room)
   }
   connectToWS(){
-    // this.service.connect(this.roomitems);
     this.service.getWebSocket().subscribe(
       msg=>{
         this.roomitems= msg[1]
