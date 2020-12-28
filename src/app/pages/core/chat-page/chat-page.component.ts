@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewChecked,ElementRef,ViewChild } from '@angular/core';
 import { WebsocketService } from 'src/app/services/websocket.service';
 import { DataService } from 'src/app/services/data.service';
 import { FormGroup, FormControl} from '@angular/forms'
+import { parse } from '@fortawesome/fontawesome-svg-core';
+
 @Component({
   selector: 'app-chat-page',
   templateUrl: './chat-page.component.html',
@@ -9,42 +11,62 @@ import { FormGroup, FormControl} from '@angular/forms'
 })
 
 export class ChatPageComponent implements OnInit {
+  @ViewChild('chatbox') private myScrollContainer: ElementRef;
+
   data:any;
   currentuser=45;
-  roomitems:any=null;
+  currentroom:number;
+  room_name:any=null;
+  room_items:any=null;
   roomparticipants:any=null;
   room_messages:any=null;
+  room_messages2:any=null;
   msgForm = new FormGroup({
+
     type: new FormControl('message'),
-    msg: new FormControl(''),
-    room_id: new FormControl(''),
+    message: new FormControl(''),
+    sender_id: new FormControl(''),
+    // room_id: new FormControl(''),
+    created_at: new FormControl(Date.now())
   });
   constructor(private service: WebsocketService, private ds: DataService) {
      this.connectToWS();
 
   }
+
+  ngOnInit(): void {
+    this.loadRooms();    
+    this.scrollToBottom(); 
+  }
+  ngAfterViewChecked() {        
+    this.scrollToBottom();        
+  }   
   onSubmitMessage() {
-    console.log(this.msgForm.value);
+    // this.connectToWS();
+    console.log(this.msgForm);
     this.service.sendMessage(this.msgForm.value)
+    
+    // this.loadRooms()
+  }
+  setCurrentRoom(room_id){
+    this.currentroom=room_id
+    this.msgForm.addControl('room_id',new FormControl(room_id)) 
+  }
+  getCurrentRoom(){
+    console.log(this.currentroom)
+    return this.currentroom;
+  }
+  setCurrentRoomName(name){
+    this.room_name=name
   }
   getMessages(id){
-    // console.log("clicked")
+    console.log(id)
+    this.setCurrentRoom(id)
     this.ds.getRequest('chats/room', id).subscribe(
       (res:any)=>{
         console.log(res.data);
           this.room_messages =  res.data
-      },
-      err => {
-        console.log(err)
-      }
-    )
-  }
-  getParticipants(id){
-    // console.log("clicked")
-    this.ds.getRequest('chats/participants', id).subscribe(
-      (res:any)=>{
-          console.log(res.data);
-          this.roomparticipants =  res.data
+          
       },
       err => {
         console.log(err)
@@ -64,18 +86,28 @@ export class ChatPageComponent implements OnInit {
   connectToWS(){
     this.service.getWebSocket().subscribe(
       msg=>{
-        this.roomitems= msg[1]
-        console.log(msg[1]);
+        console.log(msg[0].type)
+        console.log(msg[0].room_id)
+        // console.log(this.currentroom)
+        if(msg[0].type==="rooms"){
+          console.log(msg[1])
+          this.room_items= msg[1]
+        }
+        if(msg[0].type==='message'&& msg[0].room_id==this.currentroom){
+          // console.log("message")
+          console.log(msg)
+          this.room_messages.push(msg[0])
+        }
+        
       },
       er=>er,
       ()=>console.log('success')
     )
-    // this.service.sendMessage({})
   }
-
-
-  ngOnInit(): void {
-    this.loadRooms();    
+  scrollToBottom(): void {
+    try {
+        this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    } catch(err) { }                 
   }
   
 
