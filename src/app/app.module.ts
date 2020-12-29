@@ -31,6 +31,7 @@ import { PrivaryPageComponent } from './pages/core/privary-page/privary-page.com
 import { CookiesStatementPageComponent } from './pages/core/cookies-statement-page/cookies-statement-page.component';
 import { TermsPageComponent } from './pages/core/terms-page/terms-page.component';
 import { CommunityGuidelinesPageComponent } from './pages/core/community-guidelines-page/community-guidelines-page.component';
+import { UserLoginComponent } from './pages/user/user-login/user-login.component';
 
 // components
 import { CardItemComponent } from "./components/items/card-item/card-item.component";
@@ -41,6 +42,7 @@ import { CardListComponent } from './layout/card-list/card-list.component';
 import { StoreCardListComponent } from './layout/store-card-list/store-card-list.component';
 //imports
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -71,7 +73,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PrivaryPageComponent,
     CookiesStatementPageComponent,
     TermsPageComponent,
-    CommunityGuidelinesPageComponent
+    CommunityGuidelinesPageComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
