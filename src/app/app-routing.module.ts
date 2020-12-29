@@ -18,6 +18,7 @@ import { PrivaryPageComponent } from './pages/core/privary-page/privary-page.com
 import { CookiesStatementPageComponent } from './pages/core/cookies-statement-page/cookies-statement-page.component';
 import { TermsPageComponent } from './pages/core/terms-page/terms-page.component';
 import { CommunityGuidelinesPageComponent } from './pages/core/community-guidelines-page/community-guidelines-page.component';
+import { UserLoginComponent } from './pages/user/user-login/user-login.component';
   
 const routes: Routes = [
   // essential pages
@@ -46,6 +47,8 @@ const routes: Routes = [
   { path: 'store-emoticon/my-emoticons', component: UserEmoticonComponent},
   { path: 'store-emoticon/bundle/:bundle_id', component: EmoticonBundleViewComponent },
   { path: 'store-emoticon/emoticon/:emoticon_id', component: EmoticonItemViewComponent},
+  //login
+  { path: 'login', component: UserLoginComponent },
   
   {path: '', redirectTo: "/home", pathMatch: "full"},
   { path: '**', redirectTo:"/page-not-found", pathMatch: "full" }
