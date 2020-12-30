@@ -10,6 +10,7 @@ import { faSearch, faHome, faUser, faCog, faPenSquare, faUserFriends } from "@fo
 })
 export class NavbarComponent implements OnInit {
   public isMenuBarCollapsed: boolean = true
+  isLogin:boolean=false;
 
   constructor(iconLibrary: FaIconLibrary) {
     iconLibrary.addIcons(
@@ -23,8 +24,8 @@ export class NavbarComponent implements OnInit {
       faPenSquare,
       faCog
     );
+    
   }
-
   ngOnInit(): void {
   }
 
