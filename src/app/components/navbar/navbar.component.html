@@ -60,6 +60,14 @@
                         <fa-icon [icon]="['fas', 'cog']"> </fa-icon>
                     </button>
                 </li>
+                <ng-template [ngIf]="isLogin===false" >
+                    <li class="nav-item">
+                        <button class="btn btn-outline-dark rounded-circle mx-1" routerLink="/login"  >
+                            <fa-icon [icon]="['fas', 'user']"> </fa-icon>
+                        </button>
+                    </li>
+                </ng-template>
+                
             </ul>
         </div>
     </div>
