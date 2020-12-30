@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms'
 import { UserService } from 'src/app/services/user.service';
+import { EncodeDecodeService } from 'src/app/services/encode-decode.service';
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
@@ -14,13 +15,10 @@ export class UserLoginComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(private us: UserService) {
-
+  constructor(private us: UserService, private ed: EncodeDecodeService ) {
   }
 
-  eBase64(val){
-    return window.btoa(val)
-  }
+
   login(){
     const user ={ 
       username:  this.loginForm.get('username').value,
@@ -30,10 +28,18 @@ export class UserLoginComponent implements OnInit {
     this.us.login('login', user).subscribe(
       (res:any)=>{
           console.log(res)
-          sessionStorage.setItem(this.eBase64('cUsr'),this.eBase64(res.id))
-          if(res.code===200){
-            window.location.href='/home';
-          }
+          sessionStorage.setItem(
+            this.ed.eBase64('cUsr'),this.ed.eBase64(JSON.stringify({
+              id:this.ed.eBase64(res.id),
+              nm: this.ed.eBase64(res.name)
+          })))
+          // console.log
+          console.log(
+            this.ed.decSessStore()['id']
+          )
+          // if(res.code===200){
+          //   window.location.href='/chat';
+          // }
           
       }
 
