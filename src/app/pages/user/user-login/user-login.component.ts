@@ -25,26 +25,36 @@ export class UserLoginComponent implements OnInit {
       password: this.loginForm.get('password').value
     }
     // console.log(JSON.stringify(this.loginForm))
-    this.us.login('login', user).subscribe(
+    this.us.login('login', user)
+    // .get<any>('url', {observe: 'response'})
+    .subscribe(
       (res:any)=>{
-          console.log(res)
+        console.log(res)
+          document.cookie  = `nodaqsession=${res}`
+
+          console.log(document.cookie)
+          // console.log(res)
           sessionStorage.setItem(
             this.ed.eBase64('cUsr'),this.ed.eBase64(JSON.stringify({
               id:this.ed.eBase64(res.id),
               nm: this.ed.eBase64(res.name)
           })))
           // console.log
-          console.log(
-            this.ed.decSessStore()['id']
-          )
+          // console.log(
+          //   this.ed.decSessStore()['id']+""+
+          //   this.ed.decSessStore()['nm']
+          // )
           // if(res.code===200){
           //   window.location.href='/chat';
           // }
           
       }
 
-    )  
+    ) 
   }
+  // logout(){
+  // this.us.logout('logout')
+  // }
   // this.ds.getRequest('chats/room', id).subscribe(
   //   (res:any)=>{
   //     console.log(res.data);
