@@ -10,5 +10,12 @@ export class UserService {
   constructor(private http: HttpClient) { }
   login =  (namespace, data) => {
     return  this.http.post(`${this.baseUrl}${namespace}`, data)
+    
+    // return  this.http.post<any>(`${this.baseUrl}${namespace}`, data,{headers:{'Cookie':document.cookie},withCredentials:true})
   }
+  logout =  (namespace,data) => {
+    return  this.http.post(`${this.baseUrl}${namespace}`,data)
+  }
+
+  
 }
