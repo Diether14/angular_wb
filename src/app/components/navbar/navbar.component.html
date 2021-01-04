@@ -67,6 +67,15 @@
                         </button>
                     </li>
                 </ng-template>
+                <ng-template [ngIf]="isLogin===false" >
+                    <li class="nav-item">
+                        <button class="btn btn-outline-dark rounded-circle mx-1" (click)="logout()"   >
+                            <!-- <fa-icon [icon]="['fas', 'user']"> </fa-icon> -->
+                            logout
+                        </button>
+                    </li>
+                </ng-template>
+                
                 
             </ul>
         </div>
