@@ -59,6 +59,9 @@ export class ChatPageComponent implements OnInit {
   setCurrentRoomName(name){
     this.room_name=name
   }
+  setCurrentUser(id){
+
+  }
   getMessages(id){
     console.log(id)
     this.setCurrentRoom(id)
