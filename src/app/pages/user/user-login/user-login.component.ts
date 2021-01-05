@@ -29,10 +29,10 @@ export class UserLoginComponent implements OnInit {
     // .get<any>('url', {observe: 'response'})
     .subscribe(
       (res:any)=>{
-        console.log(res)
-          document.cookie  = `nodaqsession=${res}`
+          console.log(res)
+          // document.cookie  = `nodaqsession=${res}`
 
-          console.log(document.cookie)
+          // console.log(document.cookie)
           // console.log(res)
           sessionStorage.setItem(
             this.ed.eBase64('cUsr'),this.ed.eBase64(JSON.stringify({
