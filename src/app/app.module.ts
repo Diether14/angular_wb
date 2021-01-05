@@ -42,6 +42,8 @@ import { CardListComponent } from './layout/card-list/card-list.component';
 import { StoreCardListComponent } from './layout/store-card-list/store-card-list.component';
 //imports
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//providers
+import { CookieService } from 'ngx-cookie-service'
 
 
 
@@ -85,7 +87,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
