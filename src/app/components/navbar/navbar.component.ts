@@ -3,7 +3,6 @@ import { FaIconLibrary } from "@fortawesome/angular-fontawesome";
 import { faBell, faSmile, faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { faSearch, faHome, faUser, faCog, faPenSquare, faUserFriends } from "@fortawesome/free-solid-svg-icons";
 import { UserService } from '../../services/user.service'
-
 @Component({
   selector: 'nodaq-navbar',
   templateUrl: './navbar.component.html',
@@ -11,8 +10,8 @@ import { UserService } from '../../services/user.service'
 })
 export class NavbarComponent implements OnInit {
   public isMenuBarCollapsed: boolean = true
-  isLogin:boolean=false;
-
+  isLogin:number= (this.us.getCookie('isLogin'))? parseInt( this.us.getCookie('isLogin')):0;
+  cib
   constructor(iconLibrary: FaIconLibrary,private us: UserService,) {
     iconLibrary.addIcons(
       faHome,
@@ -28,12 +27,16 @@ export class NavbarComponent implements OnInit {
     
   }
   ngOnInit(): void {
+    console.log(this.isLogin)
   }
   logout(){
     this.us.logout('logout',document.cookie['nodaqsession']).subscribe((res:any)=>{
       console.log(res)
+      if(res.code===200){
+        window.location.href='/chat';
+      }
     })
-    console.log("logout")
+    // console.log("logout")
     }
 
 }
