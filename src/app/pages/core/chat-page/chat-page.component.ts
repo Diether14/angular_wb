@@ -1,8 +1,10 @@
 import { Component, OnInit,AfterViewChecked,ElementRef,ViewChild } from '@angular/core';
 import { WebsocketService } from 'src/app/services/websocket.service';
 import { DataService } from 'src/app/services/data.service';
+import { UserService } from 'src/app/services/user.service'
 import { FormGroup, FormControl} from '@angular/forms'
-import { parse } from '@fortawesome/fontawesome-svg-core';
+
+
 
 @Component({
   selector: 'app-chat-page',
@@ -29,7 +31,7 @@ export class ChatPageComponent implements OnInit {
     // room_id: new FormControl(''),
     created_at: new FormControl(Date.now())
   });
-  constructor(private service: WebsocketService, private ds: DataService) {
+  constructor(private service: WebsocketService, private ds: DataService, private us: UserService) {
      this.connectToWS();
 
   }
@@ -78,10 +80,11 @@ export class ChatPageComponent implements OnInit {
   }
   loadRooms(){
     var result;
-    var currentUser = 45;    
+    // var currentUser = 45;
+    // var currentUser = this.us.getCookie('connect.sid');    
     var room ={
       type: "rooms",
-      currentUser: currentUser
+      // currentUser: currentUser
     }
 
     this.service.sendMessage(room)
