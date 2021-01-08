@@ -69,12 +69,13 @@
                 </ng-template>
 
                 <ng-template [ngIf]="isLogin===1" >
-                    <li class="nav-item">
-                        <button class="btn btn-outline-dark rounded-circle mx-1" (click)="logout()"   >
-                            <!-- <fa-icon [icon]="['fas', 'user']"> </fa-icon> -->
-                            logout
-                        </button>
-                    </li>
+                    
+                    <div ngbDropdown class="d-inline-block">
+                        <button class="btn btn-outline-primary" id="usermenu" ngbDropdownToggle>{{user}}</button>
+                        <div ngbDropdownMenu aria-labelledby="usermenu">
+                          <button ngbDropdownItem (click)="logout()">Logout</button>
+                        </div>
+                    </div>    
                 </ng-template>
                 
                 
