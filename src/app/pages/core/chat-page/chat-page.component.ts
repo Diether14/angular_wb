@@ -1,4 +1,4 @@
-import { Component, OnInit,AfterViewChecked,ElementRef,ViewChild } from '@angular/core';
+import { Component, OnInit,AfterViewChecked,ElementRef,ViewChild, QueryList, AfterViewInit } from '@angular/core';
 import { WebsocketService } from 'src/app/services/websocket.service';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service'
@@ -12,9 +12,10 @@ import { FormGroup, FormControl} from '@angular/forms'
   styleUrls: ['./chat-page.component.scss']
 })
 
-export class ChatPageComponent implements OnInit {
-  @ViewChild('chatbox') private myScrollContainer: ElementRef;
 
+export class ChatPageComponent implements OnInit,AfterViewInit {
+  @ViewChild('chatbox') private myScrollContainer: ElementRef;
+  @ViewChild('roomitem') roomItem:  ElementRef;
   data:any;
   currentuser=45;
   currentroom:number;
@@ -27,10 +28,9 @@ export class ChatPageComponent implements OnInit {
 
     type: new FormControl('message'),
     message: new FormControl(''),
-    sender_id: new FormControl(''),
-    // room_id: new FormControl(''),
     created_at: new FormControl(Date.now())
   });
+  public height: any;
   constructor(private service: WebsocketService, private ds: DataService, private us: UserService) {
      this.connectToWS();
 
@@ -40,14 +40,21 @@ export class ChatPageComponent implements OnInit {
     this.loadRooms();    
     this.scrollToBottom(); 
   }
-  ngAfterViewChecked() {        
+  ngAfterViewInit(){
+    console.log("roomitem: "+  this.roomItem)
+    // this.roomItem.forEach((item, index) => {
+    //   console.log(item)
+    // });
+  }
+  ngAfterViewChecked() {   
+         
     this.scrollToBottom();        
   }   
   onSubmitMessage() {
     // this.connectToWS();
     console.log(this.msgForm);
     this.service.sendMessage(this.msgForm.value)
-    
+    this.msgForm.reset()
     // this.loadRooms()
   }
   setCurrentRoom(room_id){
@@ -60,9 +67,6 @@ export class ChatPageComponent implements OnInit {
   }
   setCurrentRoomName(name){
     this.room_name=name
-  }
-  setCurrentUser(id){
-
   }
   getMessages(id){
     console.log(id)
@@ -79,12 +83,9 @@ export class ChatPageComponent implements OnInit {
     )
   }
   loadRooms(){
-    var result;
-    // var currentUser = 45;
-    // var currentUser = this.us.getCookie('connect.sid');    
+    var result; 
     var room ={
-      type: "rooms",
-      // currentUser: currentUser
+      type: "rooms"
     }
 
     this.service.sendMessage(room)
