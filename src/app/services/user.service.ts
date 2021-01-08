@@ -16,8 +16,7 @@ export class UserService {
   }
   logout =  (namespace,data) => {
     console.log()
-    this.cookie.delete('sess')
-    this.cookie.delete('isLogin')
+    this.cookie.deleteAll()
     return  this.http.post(`${this.baseUrl}${namespace}`,data,{withCredentials:true})
 
   }
