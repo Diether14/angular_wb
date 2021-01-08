@@ -11,7 +11,7 @@ import { UserService } from '../../services/user.service'
 export class NavbarComponent implements OnInit {
   public isMenuBarCollapsed: boolean = true
   isLogin:number= (this.us.getCookie('isLogin'))? parseInt( this.us.getCookie('isLogin')):0;
-  cib
+  user= this.us.getCookie('nm')
   constructor(iconLibrary: FaIconLibrary,private us: UserService,) {
     iconLibrary.addIcons(
       faHome,
@@ -30,12 +30,13 @@ export class NavbarComponent implements OnInit {
     console.log(this.isLogin)
   }
   logout(){
-    this.us.logout('logout',document.cookie['nodaqsession']).subscribe((res:any)=>{
+    this.us.logout('logout','').subscribe((res:any)=>{
       console.log(res)
-      if(res.code===200){
-        window.location.href='/chat';
-      }
+      // if(res.code===200){
+        
+      // }
     })
+    window.location.href='/login';
     // console.log("logout")
     }
 
