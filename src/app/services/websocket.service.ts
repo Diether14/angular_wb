@@ -7,11 +7,11 @@ export const WS_ENDPOINT = environment.wsEndpoint;
 
 
 const ws =  webSocket(WS_ENDPOINT);
-// ws.subscribe(
-//   msg => console.log(msg),
-//   err => console.log(err), 
-//   () => console.log('complete') 
-// );
+ws.subscribe(
+  msg => console.log(msg),
+  err => console.log(err), 
+  () => console.log('complete') 
+);
 
 
 @Injectable({
