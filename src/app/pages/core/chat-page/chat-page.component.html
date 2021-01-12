@@ -11,9 +11,9 @@
           
           <div  style="min-height:90vh;border:solid;border-color: gray;" >
             <h3>Chats</h3>
-            <div  *ngFor="let item of room_items | keyvalue">
+            <div  *ngFor="let item of room_items | keyvalue;">
               <div #roomitem style="border:solid"  id={{item.value.room_id}} (click)="getMessages(item.value.room_id);setCurrentRoomName(item.value.room_name || item.value.name)">
-                {{item.value.room_name || item.value.name }}
+                  {{item.value.room_name || item.value.name }}
               </div>
               
             </div>
@@ -24,7 +24,7 @@
               <h2>{{room_name}}</h2>
             </div>
             <div #chatbox style="height:700px ;overflow: auto;border:solid">
-              <div *ngFor="let msg of room_messages | keyvalue">
+              <div *ngFor="let msg of room_messages | keyvalue:returnZero"  >
                 <ng-template [ngIf]="msg.value.sender_id===currentuser" [ngIfElse]="others">
                   <div style="text-align:right"> 
                     <div style="border-radius:5px;padding:15px;background-color:lightblue;display:inline-block">
