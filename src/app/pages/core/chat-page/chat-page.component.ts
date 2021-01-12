@@ -62,8 +62,8 @@ export class ChatPageComponent implements OnInit,AfterViewInit {
     //   this.selectFirstRoom()
     //   // item.nativeElement
     // },1000)
-         
-    this.scrollToBottom(); 
+    this.scrollToBottom();
+    // this.connectToWS(); 
          
   }   
   onSubmitMessage() {
@@ -106,33 +106,40 @@ export class ChatPageComponent implements OnInit,AfterViewInit {
   }
   connectToWS(){
     this.service.getWebSocket().subscribe(
-      msg=>{
-        console.log(msg[0])
-        if(msg[0].type==="rooms" && this.us.getCookie('id')===msg[0].sender_id){
-          console.log(msg)
-          this.room_items= msg[1]
-          this.currentuser=msg[1][0].user_id
+      (msg:any)=>{
+        if(msg[0]){
+          if(msg[0].type==="rooms" && this.us.getCookie('id')===msg[0].sender_id){
+            console.log(msg)
+            this.room_items= msg[1]
+            this.currentuser=msg[1][0].user_id
+          }
+          if(msg[0].type==='message'&& msg[0].room_id==this.currentroom){
+            console.log("message")
+            console.log(msg)
+            this.room_messages.push(msg[0])
+          }
         }
-        if(msg[0].type==='message'&& msg[0].room_id==this.currentroom){
-          console.log("message")
-          console.log(msg)
-          this.room_messages.push(msg[0])
+        else{
+          if(msg.type==='message' && msg.room_id===this.currentroom){
+            this.room_messages.push(msg)
+            this.room_messages = this.room_messages.sort((a, b) => b.created_at - a.created_at);
+            // console.log(newarr)
+          }
         }
+        
       },
       er=>er,
       ()=>console.log('success')
     )
   }
+  returnZero(){
+    return 0
+  }
   selectFirstRoom(){
     var subscription =this.roomItem.changes.subscribe(item=>{
-        item.first.nativeElement.click()
-        subscription.unsubscribe()
+      subscription.unsubscribe() 
+        item.first.nativeElement.click()       
     },err=>{})
-    // console.log(this.roomItem)
-    // this.roomItem.forEach((test)=>{
-    //   console.log(test)
-    // })
-    // console.log(this.roomItem.toArray())
   }
   scrollToBottom(): void {
     try {
